@@ -4,9 +4,9 @@ import { useState } from "react";
 const CodeInput = ({
     setCodeSrc,
 }: {
-    setCodeSrc: (codeSrc: string | undefined) => void;
+    setCodeSrc: (codeSrc: string) => void;
 }) => {
-    const [formText, setFormText] = useState<string>();
+    const [formText, setFormText] = useState<string>("");
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

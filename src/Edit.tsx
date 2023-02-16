@@ -4,7 +4,7 @@ import CodeRenderer from "./CodeRenderer";
 import { useState } from "react";
 
 const Edit = () => {
-    const [codeSrc, setCodeSrc] = useState<string>();
+    const [codeSrc, setCodeSrc] = useState<string>("");
     return (
         <div
             style={{

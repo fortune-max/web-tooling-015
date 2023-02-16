@@ -1,6 +1,6 @@
 import React from "react";
 
-const CodeRenderer = ({ codeSrc }: { codeSrc: string | undefined }) => {
+const CodeRenderer = ({ codeSrc }: { codeSrc: string }) => {
     return (
         <div>
             <h1>CodeRenderer</h1>
