@@ -7,16 +7,14 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
     return (
         <>
+            <h1>Dynamic Component</h1>
             <Router>
-                <h1>Dynamic Component</h1>
                 <h2>
                     You can <Link to="/edit">Edit</Link> This Page!
                 </h2>
                 <DynamicComponent />
                 <Switch>
-                    <Route path="/edit">
-                        <Edit />
-                    </Route>
+                    <Route path="/edit" component={Edit} />
                 </Switch>
             </Router>
         </>
