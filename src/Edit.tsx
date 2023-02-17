@@ -15,7 +15,11 @@ const Edit = () => {
             }}
         >
             <CodeRenderer codeSrc={codeSrc} />
-            <CodeInput setCodeSrc={setCodeSrc} />
+            <CodeInput
+                codeSrc={codeSrc}
+                setCodeSrc={setCodeSrc}
+                pushToGithub={true}
+            />
         </div>
     );
 };
