@@ -17,8 +17,9 @@ const CodeInput = ({
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!formText) return;
-        setCodeSrc(prettifyCode(formText));
-        if (pushToGithub) await updateGithubFile(codeSrc);
+        const prettifiedCode = prettifyCode(formText);
+        setCodeSrc(prettifiedCode);
+        if (pushToGithub) await updateGithubFile(prettifiedCode);
         setFormText("");
     };
 
