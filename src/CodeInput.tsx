@@ -52,7 +52,7 @@ async function updateGithubFile(content: string) {
     });
 
     const fileUrl =
-        "/repos/fortune-max/web-tooling-015/contents/DynamicComponent.tsx";
+        "/repos/fortune-max/web-tooling-015/contents/src/DynamicComponent.tsx";
     const fileSha = await getFileSha(fileUrl);
 
     await octokit.request(`PUT ${fileUrl}`, {
@@ -64,11 +64,11 @@ async function updateGithubFile(content: string) {
     return content;
 }
 
-function prettifyCode(codeSrc: string) {
+function prettifyCode(codeSrc) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const prettier = require("prettier");
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const babelParser = require("prettier/parser-babel");
+    const babelParser = require("prettier/parser-babel"); // parser-typescript
     return prettier.format(codeSrc, {
         parser: "babel",
         plugins: [babelParser],
