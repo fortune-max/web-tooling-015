@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Octokit } from "@octokit/core";
-// import prettier from "prettier/standalone";
 
 const CodeInput = ({
     codeSrc,
@@ -66,11 +65,12 @@ async function updateGithubFile(content: string) {
 }
 
 function prettifyCode(codeSrc: string) {
+    const ignComment = "/* eslint-disable prettier/prettier */\n";
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const prettier = require("prettier");
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const babelParser = require("prettier/parser-babel"); // parser-typescript
-    return prettier.format(codeSrc, {
+    return prettier.format(ignComment + codeSrc, {
         parser: "babel",
         plugins: [babelParser],
         tabWidth: 4,
