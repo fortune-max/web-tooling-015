@@ -61,7 +61,7 @@ export const TodoForm = ({ addTodo }: TodoFormProps) => {
 };
 
 export const Todo = () => {
-    const [todos, setTodos] = React.useState<todo[]>([]);
+    const [todos, setTodos]: [todo[], any] = React.useState([]);
 
     const addTodo = (text: string) => {
         const newTodos: todo[] = [...todos, { text, isCompleted: false }];
