@@ -65,7 +65,9 @@ async function updateGithubFile(content: string) {
 }
 
 function prettifyCode(codeSrc: string) {
-    const prettier = require('prettier');
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const prettier = require("prettier");
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const babelParser = require("prettier/parser-babel");
     return prettier.format(codeSrc, {
         parser: "babel",
