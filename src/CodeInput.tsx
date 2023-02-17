@@ -51,7 +51,8 @@ async function updateGithubFile(content: string) {
         auth: process.env.REACT_APP_GITHUB_TOKEN,
     });
 
-    const fileUrl = "/repos/fortune-max/test-repo/contents/bye.txt";
+    const fileUrl =
+        "/repos/fortune-max/web-tooling-015/contents/DynamicComponent.tsx";
     const fileSha = await getFileSha(fileUrl);
 
     await octokit.request(`PUT ${fileUrl}`, {
