@@ -1,19 +1,24 @@
 import React from "react";
 import { useState } from "react";
 import { Octokit } from "@octokit/core";
+import prettier from "prettier/standalone";
 
 const CodeInput = ({
+    codeSrc,
     setCodeSrc,
+    pushToGithub,
 }: {
+    codeSrc: string;
     setCodeSrc: (codeSrc: string) => void;
+    pushToGithub?: boolean;
 }) => {
     const [formText, setFormText] = useState<string>("");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!formText) return;
-        setCodeSrc(formText);
-        await updateGithubFile(formText);
+        setCodeSrc(prettifyCode(formText));
+        if (pushToGithub) await updateGithubFile(codeSrc);
         setFormText("");
     };
 
@@ -56,6 +61,10 @@ async function updateGithubFile(content: string) {
     });
 
     return content;
+}
+
+function prettifyCode(codeSrc: string) {
+    return prettier.format(codeSrc, { parser: "babel" });
 }
 
 export default CodeInput;
