@@ -12,12 +12,7 @@ type TodoItemProps = {
     removeTodo: (index: number) => void;
 };
 
-export const TodoItem = ({
-    todo,
-    index,
-    completeTodo,
-    removeTodo,
-}: TodoItemProps) => {
+const TodoItem = ({ todo, index, completeTodo, removeTodo }: TodoItemProps) => {
     return (
         <div
             className="todo-item"
@@ -37,7 +32,7 @@ type TodoFormProps = {
     addTodo: (text: string) => void;
 };
 
-export const TodoForm = ({ addTodo }: TodoFormProps) => {
+const TodoForm = ({ addTodo }: TodoFormProps) => {
     const [value, setValue] = React.useState("");
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -60,7 +55,7 @@ export const TodoForm = ({ addTodo }: TodoFormProps) => {
     );
 };
 
-export const Todo = () => {
+const DynamicComponent = () => {
     const [todos, setTodos]: [todo[], any] = React.useState([]);
 
     const addTodo = (text: string) => {
@@ -98,3 +93,5 @@ export const Todo = () => {
         </div>
     );
 };
+
+export default DynamicComponent;

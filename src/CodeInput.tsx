@@ -73,6 +73,7 @@ function prettifyCode(codeSrc: string) {
     return prettier.format(codeSrc, {
         parser: "babel",
         plugins: [babelParser],
+        tabWidth: 4,
     });
 }
 
