@@ -64,7 +64,7 @@ async function updateGithubFile(content: string) {
     return content;
 }
 
-function prettifyCode(codeSrc) {
+function prettifyCode(codeSrc: string) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const prettier = require("prettier");
     // eslint-disable-next-line @typescript-eslint/no-var-requires
