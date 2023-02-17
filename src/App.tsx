@@ -8,9 +8,18 @@ function App() {
     return (
         <>
             <Router>
-                <h2>
-                    You can <Link to="/edit">Edit</Link> This Page!
-                </h2>
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: "column",
+                    }}
+                >
+                    <h2>
+                        You can <Link to="/edit">edit</Link> this page!
+                    </h2>
+                    <span>(it only takes an eternity to propagate)</span>
+                </div>
                 <DynamicComponent />
                 <Switch>
                     <Route path="/edit" component={Edit} />
