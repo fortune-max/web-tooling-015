@@ -12,7 +12,11 @@ return () => <App />;
 `;
 
     const Content = (
-        <Highlight {...defaultProps} code={exampleCode} language="jsx">
+        <Highlight
+            {...defaultProps}
+            code={codeSrc.length > 1 ? codeSrc : exampleCode}
+            language="jsx"
+        >
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
                 <pre className={className} style={style}>
                     {tokens.map((line, i) => (
