@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Octokit } from "@octokit/core";
-import prettier from "prettier/standalone";
+// import prettier from "prettier/standalone";
 
 const CodeInput = ({
     codeSrc,
@@ -65,7 +65,12 @@ async function updateGithubFile(content: string) {
 }
 
 function prettifyCode(codeSrc: string) {
-    return prettier.format(codeSrc, { parser: "babel" });
+    const prettier = require('prettier');
+    const babelParser = require("prettier/parser-babel");
+    return prettier.format(codeSrc, {
+        parser: "babel",
+        plugins: [babelParser],
+    });
 }
 
 export default CodeInput;

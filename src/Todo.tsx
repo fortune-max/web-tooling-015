@@ -81,7 +81,7 @@ export const Todo = () => {
     };
 
     return (
-        <div className="todo">
+        <div className="todo" data-testid="dynamic-component">
             <h1>Todo List</h1>
             <div data-testid="todo-list">
                 {todos.map((todo, index) => (
