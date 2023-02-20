@@ -56,6 +56,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
 };
 
 const DynamicComponent = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [todos, setTodos]: [todo[], any] = React.useState([]);
 
     const addTodo = (text: string) => {
