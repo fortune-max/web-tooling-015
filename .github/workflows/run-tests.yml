@@ -1,0 +1,22 @@
+name: Run tests
+run-name: ${{ github.actor }} is running tests
+on: [push]
+jobs:
+    test-dynamic-component-renders:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: "18"
+            - run: npm install
+            - run: npm test -- --watchAll=false
+    check-if-linted:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: "18"
+            - run: npm install
+            - run: npm run lint
