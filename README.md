@@ -1,48 +1,73 @@
-# Getting Started with Create React App
+# web-tooling-015 - Final Project (Dynamic Website)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The aim of this project was to leverage on as many of the new tools learned during the course - M6: Web Tooling and Modern Setup.
 
-## Available Scripts
+Some of these were:
 
-In the project directory, you can run:
+-   Prettier
+-   ESLint
+-   Husky
+-   Lint-Staged
+-   nvmrc
+-   Github Actions
+-   Vercel/Netlify (SSG)
+-   Figma
+-   Storybook
+-   React (not strictly part of the course, but I was interested in getting my hands dirty).
+-   Several others in the form of web apps and resources:
+    https://www.radix-ui.com/
+    https://ariakit.org/
+    https://headlessui.com/
+    https://commitlint.js.org/#/ (lint runner)
+    https://gitmoji.dev/ (commit standard)
+    https://github.com/pmndrs/react-three-fiber
+    https://alexsidorenko.com/
+    https://overreacted.io/
+    https://playwright.dev/
+    https://dribbble.com
+    https://dan.church (on Internet Archive)
+    https://testingjavascript.com/ (Kent C. Dodds)
+    https://todomvc.com (Todo app in JS frameworks)
+    https://github.com/welldone-software/why-did-you-render (For debugging needless rerenders React)
+    https://github.com/gvergnaud/hotscript ((over-)extending Typescript to form computed types)
+    https://remix.run (An alternative to microfrontends (?))
+    https://github.com/vercel/satori (Convert HTMl and CSS to SVG assets)
+    https://www.remotion.dev/ (Create videos programmatically using React)
 
-### `npm start`
+The idea I came up with for my aimed to use as much tooling as possible, in a creative way.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It borrows ideas from Web 2.0 and r/place (and pxls.space) by allowing users dictate whatever they want to see on the site, provided they can fit it creatively into a single React component.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The website is hosted at https://web-tooling-015.vercel.app.
 
-### `npm test`
+It's Storybook is hosted at https://web-tooling-015-storybook.vercel.app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There are two conditions for the submitted component to be valid.
 
-### `npm run build`
+The default export should be named DynamicComponent and it should contain data-testid="dynamic-component" as an attribute for at least one rendered html tag. This is to ensure during testing that the Component can be rendered on a page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Its dependencies include:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   Prettier & ESLint: to properly format the one-liner react component to readable text in preview as well as act as a buffer for error checking before deploying.
+-   Github Actions: To run pushed code to verify it is renderable and properly linted.
+-   Vercel: For making the app accessible over the Internet and keeping it up to date whenever the repo is updated.
+-   Husky: For running tests and linting before committing to ensure pushed code follows guidelines (and prevent possible merge conflict headaches for everyone else).
+-   Lint-staged: Limits the number of files to be linted to just those which were modified.
+-   nvmrc: To ensure the node version used matches the one used in development.
+-   Storybook: For previewing components in Isolation and understanding their behaviour with different props.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run the app, first clone the repo, then `npm install` to install dependencies. Then `npm start` to run the project.
 
-### `npm run eject`
+The custom npm scripts are:
+npm run lint: which runs prettier then eslint
+npm test: which runs the tests to ensure Component renders and tests the Todo demo component
+prepare: which installs husky when `npm install` is executed
+npm run build-storybook: which generates a storybook folder containing files which can then be served using any basic http server (static storybook)
+npm run storybook: which monitors the stories and serves them as they are updated (dynamic storybook)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The git hooks used are
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npx lint-staged: which runs lint-staged on all commited files on pre-commit
+npm test -- --watchAll=false: which runs all tests and continues with commit if they pass. The watchAll parameter makes the test not run in monitor mode and hence run only once.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-# web-tooling-015
+The github actions configured are similar to the git hooks except the lint runs on the whole project as opposed to just committed files.
