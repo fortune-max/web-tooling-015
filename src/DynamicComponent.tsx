@@ -13,7 +13,7 @@ function DynamicComponent() {
         setCounter(0);
     };
     return (
-        <div className="dynamic-component">
+        <div data-testid="dynamic-component">
             {" "}
             <h1>React Counter</h1>{" "}
             <span className="counter__output">{counter}</span>{" "}
