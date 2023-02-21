@@ -15,24 +15,24 @@ Some of these were:
 -   Storybook
 -   React (not strictly part of the course, but I was interested in getting my hands dirty).
 -   Several others in the form of web apps and resources:
-    https://www.radix-ui.com/
-    https://ariakit.org/
-    https://headlessui.com/
-    https://commitlint.js.org/#/ (lint runner)
-    https://gitmoji.dev/ (commit standard)
-    https://github.com/pmndrs/react-three-fiber
-    https://alexsidorenko.com/
-    https://overreacted.io/
-    https://playwright.dev/
-    https://dribbble.com
-    https://dan.church (on Internet Archive)
-    https://testingjavascript.com/ (Kent C. Dodds)
-    https://todomvc.com (Todo app in JS frameworks)
-    https://github.com/welldone-software/why-did-you-render (For debugging needless rerenders React)
-    https://github.com/gvergnaud/hotscript ((over-)extending Typescript to form computed types)
-    https://remix.run (An alternative to microfrontends (?))
-    https://github.com/vercel/satori (Convert HTMl and CSS to SVG assets)
-    https://www.remotion.dev/ (Create videos programmatically using React)
+    -   https://www.radix-ui.com/
+    -   https://ariakit.org/
+    -   https://headlessui.com/
+    -   https://commitlint.js.org/#/ (lint runner)
+    -   https://gitmoji.dev/ (commit standard)
+    -   https://github.com/pmndrs/react-three-fiber
+    -   https://alexsidorenko.com/
+    -   https://overreacted.io/
+    -   https://playwright.dev/
+    -   https://dribbble.com
+    -   https://dan.church (on Internet Archive)
+    -   https://testingjavascript.com/ (Kent C. Dodds)
+    -   https://todomvc.com (Todo app in JS frameworks)
+    -   https://github.com/welldone-software/why-did-you-render (For debugging needless rerenders React)
+    -   https://github.com/gvergnaud/hotscript ((over-)extending Typescript to form computed types)
+    -   https://remix.run (An alternative to microfrontends (?))
+    -   https://github.com/vercel/satori (Convert HTMl and CSS to SVG assets)
+    -   https://www.remotion.dev/ (Create videos programmatically using React)
 
 The idea I came up with for my aimed to use as much tooling as possible, in a creative way.
 
@@ -59,15 +59,16 @@ Its dependencies include:
 To run the app, first clone the repo, then `npm install` to install dependencies. Then `npm start` to run the project.
 
 The custom npm scripts are:
-npm run lint: which runs prettier then eslint
-npm test: which runs the tests to ensure Component renders and tests the Todo demo component
-prepare: which installs husky when `npm install` is executed
-npm run build-storybook: which generates a storybook folder containing files which can then be served using any basic http server (static storybook)
-npm run storybook: which monitors the stories and serves them as they are updated (dynamic storybook)
+
+-   npm run lint: which runs prettier then eslint
+-   npm test: which runs the tests to ensure Component renders and tests the Todo demo component
+-   prepare: which installs husky when `npm install` is executed
+-   npm run build-storybook: which generates a storybook folder containing files which can then be served using any basic http server (static storybook)
+-   npm run storybook: which monitors the stories and serves them as they are updated (dynamic storybook)
 
 The git hooks used are
 
-npx lint-staged: which runs lint-staged on all commited files on pre-commit
-npm test -- --watchAll=false: which runs all tests and continues with commit if they pass. The watchAll parameter makes the test not run in monitor mode and hence run only once.
+-   npx lint-staged: which runs lint-staged on all commited files on pre-commit
+-   npm test -- --watchAll=false: which runs all tests and continues with commit if they pass. The watchAll parameter makes the test not run in monitor mode and hence run only once.
 
 The github actions configured are similar to the git hooks except the lint runs on the whole project as opposed to just committed files.
